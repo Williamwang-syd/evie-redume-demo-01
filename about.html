@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About - Job Board Demo</title>
+  <link rel="stylesheet" href="assets/style.css" />
+  <style>
+    /* Page-specific styles */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+
+    .hero {
+      background: #f7fbff;
+      border: 1px solid #e6f0fb;
+      border-radius: 8px;
+      padding: 1.5rem;
+    }
+
+    .section {
+      margin-top: 2rem;
+    }
+
+    .badges {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .badge {
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 1rem;
+      background: #fff;
+    }
+
+    .badge h3 {
+      margin: 0 0 0.5rem;
+      color: #0078d4;
+      font-size: 1rem;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .member {
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 1rem;
+      background: #fff;
+    }
+
+    .member h3 {
+      margin: 0 0 0.25rem;
+      font-size: 1rem;
+      color: #0078d4;
+    }
+
+    @media (min-width: 768px) {
+      .badges {
+        grid-template-columns: 1fr 1fr;
+      }
+      .team-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Job Board Demo</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="jobs.html">Jobs</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h2>About our startup</h2>
+      <p>
+        We’re a Sydney-based startup founded by four high school girls who believe
+        finding part-time work should be simple, fair, and accessible for students.
+        Our platform connects students with flexible opportunities that fit around school and life.
+      </p>
+    </section>
+
+    <section class="section">
+      <h3>Our mission</h3>
+      <p>
+        Empower high school students with real-world experience by making job discovery
+        transparent, local, and student-friendly—while helping small businesses find reliable, motivated talent.
+      </p>
+    </section>
+
+    <section class="section">
+      <h3>Our story</h3>
+      <p>
+        What started as a school project quickly grew into a community-focused platform.
+        We talked to students, parents, and local businesses across Sydney, and built a solution
+        that’s lightweight, mobile-first, and easy to use. Every feature is designed around student needs.
+      </p>
+    </section>
+
+    <section class="section">
+      <h3>Awards and recognition</h3>
+      <div class="badges">
+        <div class="badge">
+          <h3>First place — Spark Tank</h3>
+          <p>
+            Recognized for innovation, clarity of vision, and practical impact for student employment.
+            This win helped us refine our roadmap and accelerate our prototype.
+          </p>
+        </div>
+        <div class="badge">
+          <h3>Third place — Macquarie University Incubator program</h3>
+          <p>
+            Celebrated for strong user research and a scalable approach. The incubator’s mentorship
+            guided our product validation and community partnerships.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h3>Meet the team</h3>
+      <div class="team-grid">
+        <div class="member">
+          <h3>Co-founder</h3>
+          <p>Product design, user research, and brand direction.</p>
+        </div>
+        <div class="member">
+          <h3>Co-founder</h3>
+          <p>Front-end development, accessibility, and performance.</p>
+        </div>
+        <div class="member">
+          <h3>Co-founder</h3>
+          <p>Community outreach, partner relations, and student advocacy.</p>
+        </div>
+        <div class="member">
+          <h3>Co-founder</h3>
+          <p>Data, analytics, and growth experiments.</p>
+        </div>
+      </div>
+      <p style="margin-top:1rem;">
+        We’re proud to be building this in Sydney and partnering with local schools and businesses.
+      </p>
+    </section>
+
+    <section class="section">
+      <h3>What’s next</h3>
+      <p>
+        We’re expanding job categories, improving application workflows, and exploring
+        student profiles and employer reviews. If you’d like to collaborate or share feedback,
+        we’d love to hear from you.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Job Board Demo</p>
+  </footer>
+</body>
+</html>
