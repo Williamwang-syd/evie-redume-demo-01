@@ -1,30 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Redumé Demo</title>
-  <link rel="stylesheet" href="assets/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Redumé</title>
+  <link rel="stylesheet" href="assets/style.css" />
 </head>
 <body>
   <header>
-    <h1>Redumé Demo</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="jobs.html">Jobs</a>
-      <a href="about.html">About</a>
+    <h1>Redumé</h1>
+    <nav class="nav-buttons">
+      <a class="btn btn-secondary" href="index.html" aria-current="page">Home</a>
+      <a class="btn btn-secondary" href="jobs.html">Jobs</a>
+      <a class="btn btn-secondary" href="about.html">About</a>
+      <button class="btn btn-secondary" id="signInBtn">Sign in</button>
     </nav>
   </header>
 
   <main>
-    <section>
-      <h2>Welcome</h2>
-      <p>This is a Redumé demo built with Azure Static Web Apps + GitHub.</p>
+    <section class="hero">
+      <h2>Find part‑time jobs that fit your school schedule</h2>
+      <p>
+        Discover flexible, local opportunities perfect for high school students. Browse openings, save your favorites,
+        and connect with employers who value student talent.
+      </p>
+      <div class="cta-row">
+        <a href="jobs.html" class="btn btn-primary">Browse jobs</a>
+        <button class="btn btn-secondary" id="signInBtnHero">Sign in</button>
+      </div>
+
+      <h3 class="why-title">Why Redumé</h3>
+      <ul class="why-list">
+        <li><strong>Student-first:</strong> Roles curated for teens with fair hours and pay.</li>
+        <li><strong>Local employers:</strong> Opportunities across Sydney’s neighborhoods.</li>
+        <li><strong>Mobile-friendly:</strong> Apply and track from any device.</li>
+      </ul>
     </section>
   </main>
 
+  <!-- Sign-in modal -->
+  <div class="modal-backdrop" id="modalBackdrop" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="signin-title">
+      <div class="modal-header">
+        <h3 id="signin-title">Sign in to Redumé</h3>
+        <p class="modal-subtext">
+          Choose a provider to continue. For this demo, enable providers in Azure Static Web Apps.
+        </p>
+      </div>
+      <div class="modal-body">
+        <div class="provider-grid">
+          <!-- Built-in providers in Azure Static Web Apps -->
+          <a class="provider-btn" href="/.auth/login/google">
+            <span>🔵</span> <span>Continue with Google</span>
+          </a>
+          <a class="provider-btn" href="/.auth/login/github">
+            <span>⚫</span> <span>Continue with GitHub</span>
+          </a>
+          <a class="provider-btn" href="/.auth/login/twitter">
+            <span>🔷</span> <span>Continue with Twitter</span>
+          </a>
+          <a class="provider-btn" href="/.auth/login/aad">
+            <span>🟦</span> <span>Continue with Microsoft (Azure AD)</span>
+          </a>
+
+          <!-- Placeholders (require Azure AD B2C/custom flow) -->
+          <a class="provider-btn provider-disabled" href="#" aria-disabled="true" title="Requires Azure AD B2C">
+            <span>🔗</span> <span>Continue with LinkedIn</span>
+          </a>
+          <a class="provider-btn provider-disabled" href="#" aria-disabled="true" title="Not a standard login provider">
+            <span>📸</span> <span>Continue with Instagram</span>
+          </a>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button class="btn close-btn" id="closeModal">Close</button>
+      </div>
+    </div>
+  </div>
+
   <footer>
-    <p>© 2025 Redumé Demo</p>
+    <p>© 2025 Redumé</p>
   </footer>
+
+  <script>
+    // Modal open/close
+    const openButtons = [
+      document.getElementById('signInBtn'),
+      document.getElementById('signInBtnHero')
+    ];
+    const backdrop = document.getElementById('modalBackdrop');
+    const closeBtn = document.getElementById('closeModal');
+
+    function openModal() {
+      backdrop.style.display = 'flex';
+      backdrop.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      backdrop.style.display = 'none';
+      backdrop.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    openButtons.forEach(btn => btn && btn.addEventListener('click', openModal));
+    closeBtn.addEventListener('click', closeModal);
+    backdrop.addEventListener('click', (e) => {
+      if (e.target === backdrop) closeModal();
+    });
+
+    // Optional: detect login state and swap Sign in for Account + Sign out
+    fetch('/.auth/me')
+      .then(res => res.ok ? res.json() : null)
+      .then(data => {
+        const isLoggedIn = !!(data && data.clientPrincipal);
+        if (isLoggedIn) {
+          openButtons.forEach(btn => { if (btn) btn.textContent = 'Account'; });
+          const nav = document.querySelector('nav.nav-buttons');
+          const signOut = document.createElement('a');
+          signOut.className = 'btn btn-secondary';
+          signOut.href = '/.auth/logout';
+          signOut.textContent = 'Sign out';
+          nav.appendChild(signOut);
+        }
+      })
+      .catch(() => {});
+  </script>
 </body>
 </html>
