@@ -13,74 +13,47 @@
       <a class="btn btn-secondary" href="index.html" aria-current="page">Home</a>
       <a class="btn btn-secondary" href="jobs.html">Jobs</a>
       <a class="btn btn-secondary" href="about.html">About</a>
-      <button class="btn btn-secondary" id="signInBtn">Sign in</button>
+      <button class="btn btn-secondary" id="signInBtn">Sign in to apply jobs now</button>
     </nav>
   </header>
 
   <main>
     <section class="hero">
+
+      <div class="header-actions">
+        <div class="search"><input type="search" class="search-input" placeholder="search jobs or companies" /><button class="search-btn" aria-label="Search">🔍</button></div>
+      </div>
+
       <h2>Find part‑time jobs that fit your school schedule</h2>
       <p>
         Discover flexible, local opportunities perfect for high school students. Browse openings, save your favorites,
         and connect with employers who value student talent.
       </p>
 
-      <div class="header-actions">
-        <div class="search"><input type="search" class="search-input" placeholder="search jobs or companies" /><button class="search-btn" aria-label="Search">🔍</button></div>
-        
-      </div>
-
       <h3 class="why-title">Why Redumé</h3>
       <ul class="why-list">
         <li><strong>Student-first:</strong> Roles curated for teens with fair hours and pay.</li>
         <li><strong>Local employers:</strong> Opportunities across Sydney’s neighborhoods.</li>
-        <li><strong>Mobile-friendly:</strong> Apply and track from any device.</li>
       </ul>
     </section>
   </main>
 
   <!-- Sign-in modal -->
-  <div class="modal-backdrop" id="modalBackdrop" aria-hidden="true">
-    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="signin-title">
-      <div class="modal-header">
-        <h3 id="signin-title">Sign in to Redumé</h3>
-        <p class="modal-subtext">
-          Choose a provider to continue. For this demo, enable providers in Azure Static Web Apps.
-        </p>
+    <section class="auth-banner">
+    <div class="wrap auth-wrap">
+      <div class="auth-left">
+        <h1 class="hero-title">Find roles that match your skills</h1>
+        <p class="hero-sub">Explore the feed. Sign in to personalize and save jobs.</p>
       </div>
-      <div class="modal-body">
-        <div class="provider-grid">
-          <!-- Built-in providers in Azure Static Web Apps -->
-          <a class="provider-btn" href="/.auth/login/google">
-            <span>🔵</span> <span>Continue with Google</span>
-          </a>
-          <a class="provider-btn" href="/.auth/login/github">
-            <span>⚫</span> <span>Continue with GitHub</span>
-          </a>
-          <a class="provider-btn" href="/.auth/login/twitter">
-            <span>🔷</span> <span>Continue with Twitter</span>
-          </a>
-          <a class="provider-btn" href="/.auth/login/aad">
-            <span>🟦</span> <span>Continue with Microsoft (Azure AD)</span>
-          </a>
-
-          <!-- Placeholders (require Azure AD B2C/custom flow) -->
-          <a class="provider-btn provider-disabled" href="#" aria-disabled="true" title="Requires Azure AD B2C">
-            <span>🔗</span> <span>Continue with LinkedIn</span>
-          </a>
-          <a class="provider-btn provider-disabled" href="#" aria-disabled="true" title="Not a standard login provider">
-            <span>📸</span> <span>Continue with Instagram</span>
-          </a>
-        </div>
-      </div>
-      <div class="modal-actions">
-        <button class="btn close-btn" id="closeModal">Close</button>
+      <div class="auth-right">
+        <a class="btn btn-microsoft" href="/.auth/login/aad">Sign in with Microsoft</a>
+        <a class="btn btn-github" href="/.auth/login/google">Sign in with Google</a>
       </div>
     </div>
-  </div>
+  </section>
 
   <footer>
-    <p>© 2025 Redumé</p>
+    <p>© 2025 Redumé Demo</p>
   </footer>
 
   <script>
